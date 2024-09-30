@@ -1,0 +1,64 @@
+const homeLink = document.getElementById('home-link');
+const aboutLink = document.getElementById('about-link');
+const contactLink = document.getElementById('contact-link');
+const loginLink = document.getElementById('login-link');
+const logoutLink = document.getElementById('logout-link');
+
+const homeSection = document.getElementById('home-section');
+const aboutSection = document.getElementById('about-section');
+const contactSection = document.getElementById('contact-section');
+const loginSection = document.getElementById('login-section');
+homeLink.addEventListener('click', () => {
+  showSection('home');
+});
+
+aboutLink.addEventListener('click', () => {
+  showSection('about');
+});
+
+contactLink.addEventListener('click', () => {
+  showSection('contact');
+});
+
+loginLink.addEventListener('click', () => {
+  showSection('login');
+});
+
+logoutLink.addEventListener('click', () => {
+  logout();
+});
+function showSection(section) {
+  homeSection.style.display = 'none';
+  aboutSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  loginSection.style.display = 'none';
+
+  if (section === 'home') {
+    homeSection.style.display = 'block';
+  } else if (section === 'about') {
+    aboutSection.style.display = 'block';
+  } else if (section === 'contact') {
+    contactSection.style.display = 'block';
+  } else if (section === 'login') {
+    loginSection.style.display = 'block';
+  }
+}
+loginForm = document.getElementById('login-form');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  login();
+});
+
+function login() {
+  loginLink.style.display = 'none';
+  logoutLink.style.display = 'block';
+  alert('User logged in');
+  showSection('home');
+}
+
+function logout() {
+  loginLink.style.display = 'block';
+  logoutLink.style.display = 'none';
+  alert('User logged out');
+  showSection('home');
+}
